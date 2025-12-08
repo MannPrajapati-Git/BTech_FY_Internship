@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day_2.1</title>
+
+
+    <script>
+        // function addition(){
+        //     let n1 = document.getElementById("txt1").value
+        //     let n2 = document.getElementById("txt2").value
+        //     let n3 = document.getElementById("dd1").value
+        //     if(n1==''){
+        //         alert("Enter no1.")
+        //     }
+        //     else if(isNaN(n1)){
+        //         alert("Enter number only in 1st box.!!!!")
+        //     }
+        //     else if(n2==''){
+        //         alert("Enter no2.")
+        //     }
+        //     else if(isNaN(n2)){
+        //         alert("Enter number only in 2nd box.!!!!")
+        //     }
+        //     else{
+        //         let add = parseInt(n1) + parseInt(n2);
+        //         document.getElementById("ans").innerHTML = "Addition is : " + add 
+        //     }
+        // }
+        // function subtraction(){
+        //     let n1 = document.getElementById("txt1").value
+        //     let n2 = document.getElementById("txt2").value
+        //     let n3 = document.getElementById("dd1").value
+        //     if(n1==''){
+        //         alert("Enter no1.")
+        //     }
+        //     else if(isNaN(n1)){
+        //         alert("Enter number only in 1st box.!!!!")
+        //     }
+        //     else if(n2==''){
+        //         alert("Enter no2.")
+        //     }
+        //     else if(isNaN(n2)){
+        //         alert("Enter number only in 2nd box.!!!!")
+        //     }
+        //     else{
+        //         let sub = parseInt(n1) - parseInt(n2);
+        //         document.getElementById("ans").innerHTML = "Subtraction is : " + sub 
+        //     }
+        // }
+        // function multiplication(){
+        //     let n1 = document.getElementById("txt1").value
+        //     let n2 = document.getElementById("txt2").value
+        //     let n3 = document.getElementById("dd1").value
+        //     if(n1==''){
+        //         alert("Enter no1.")
+        //     }
+        //     else if(isNaN(n1)){
+        //         alert("Enter number only in 1st box.!!!!")
+        //     }
+        //     else if(n2==''){
+        //         alert("Enter no2.")
+        //     }
+        //     else if(isNaN(n2)){
+        //         alert("Enter number only in 2nd box.!!!!")
+        //     }
+        //     else{
+        //         let mul = parseInt(n1) * parseInt(n2);
+        //         document.getElementById("ans").innerHTML = "Multiplication is : " + mul 
+        //     }
+        // }
+        // function division(){
+        //     let n1 = document.getElementById("txt1").value
+        //     let n2 = document.getElementById("txt2").value
+        //     let n3 = document.getElementById("dd1").value
+        //     if(n1==''){
+        //         alert("Enter no1.")
+        //     }
+        //     else if(isNaN(n1)){
+        //         alert("Enter number only in 1st box.!!!!")
+        //     }
+        //     else if(n2==''){
+        //         alert("Enter no2.")
+        //     }
+        //     else if(isNaN(n2)){
+        //         alert("Enter number only in 2nd box.!!!!")
+        //     }
+        //     else{
+        //         let div = parseInt(n1) / parseInt(n2);
+        //         document.getElementById("ans").innerHTML = "Division is : " + div 
+        //     }
+        // }
+
+
+        function dd(){
+            let n1 = document.getElementById("txt1").value
+            let n2 = document.getElementById("txt2").value
+            let n3 = document.getElementById("dd1").value
+            if(n1==''){
+                alert("Enter no1.")
+            }
+            else if(isNaN(n1)){
+                alert("Enter number only in 1st box.!!!!")
+            }
+            else if(n2==''){
+                alert("Enter no2.")
+            }
+            else if(isNaN(n2)){
+                alert("Enter number only in 2nd box.!!!!")
+            }
+            else{
+                if(n3 == "addition"){
+                    let add = parseInt(n1) + parseInt(n2);
+                    document.getElementById("ans").innerHTML = "Addition is : " + add
+                }
+                else if(n3 == "subtraction"){
+                    let sub = parseInt(n1) - parseInt(n2);
+                    document.getElementById("ans").innerHTML = "Subtraction is : " + sub
+                }
+                else if(n3 == "multiplication"){
+                    let mul = parseInt(n1) * parseInt(n2);
+                    document.getElementById("ans").innerHTML = "Multiplication is : " + mul
+                }
+                else if(n3 == "division"){
+                    let div = parseInt(n1) / parseInt(n2);
+                    document.getElementById("ans").innerHTML = "Division is : " + div
+                }
+                else{
+                    console.log("error")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <br>
+    No1: <input type="text" placeholder="Enter no1" id="txt1"> <br> <BR></BR>
+    No2: <input type="text" placeholder="Enter no2" id="txt2"> <br>
+    <br> 
+    <br> 
+        <select id="dd1" onchange="dd()">
+            <option value="addition" onselect="dd()">addition</option>
+            <option value="subtraction" onselect="dd()">subtraction</option>
+            <option value="multiplication" onselect="dd()">multiplication</option>
+            <option value="division" onselect="dd()">division</option>
+        </select>
+
+
+    <!-- <br>
+    <input type="button" value="+" onclick="addition()">
+    <input type="button" value="-" onclick="subtraction()">
+    <input type="button" value="*" onclick="multiplication()">
+    <input type="button" value="/" onclick="division()">
+    <br>
+    <br> -->
+
+    <h3 id="ans"></h3>
+</body>
+</html>

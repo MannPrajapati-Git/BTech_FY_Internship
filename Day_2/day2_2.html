@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST calculator</title>
+
+    <script>
+        function ingst(){
+            let amount = document.getElementById("txt1").value;
+            let percentage = document.getElementById("txt2").value;
+            let res1 = parseInt(amount) + parseInt((parseInt(amount) * parseInt(percentage) / 100)) ;
+            document.getElementById("result").innerHTML = "GST included amount : " + res1;
+        }
+        function exgst(){
+            let amount = document.getElementById("txt1").value;
+            let percentage = document.getElementById("txt2").value;
+             let res1 = parseInt(amount) + parseInt((parseInt(amount) * parseInt(percentage) / 100)) ;
+            
+            let res2 = parseInt(amount) - (parseInt(amount) - (  parseInt(amount)  * (100 / (100 + parseInt(percentage)))) );
+            document.getElementById("result").innerHTML = "GST Excluded amount : " + res2;
+        }
+    </script>
+
+</head>
+<body>
+    <input type="text" placeholder="Enter amount" id="txt1"><br><br>
+    <input type="text" placeholder="Enter percentage" id="txt2">
+    <br><br>
+    <input type="button" onclick="ingst()" value="include GST">
+    <br>
+    <br>
+    <input type="button" onclick="exgst()" value="exclude GST">
+    <br>
+    <br>
+    <h3 id="result"></h3>
+</body>
+</html>
