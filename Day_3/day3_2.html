@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment-Decrement Buttons</title>
+
+    <script>
+    
+    let i = 0;  
+    function increment(){
+        i++;
+        document.getElementById("showData").innerHTML = "Value of i: " + i;
+    }
+    function decrement(){
+        if(i == 0){
+            
+        }
+        else{
+            i--;
+            document.getElementById("showData").innerHTML = "Value of i: " + i;
+        }
+    }
+    </script>
+
+</head>
+
+<body>
+    <input type="button" value="Increment" onclick="increment()">
+    <input type="button" value="Decrement" onclick="decrement()">
+    <h3 id="showData">Value of i: </h3>
+
+</body>
+</html>

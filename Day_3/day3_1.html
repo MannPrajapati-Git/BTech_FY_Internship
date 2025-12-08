@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>day3_1</title>
+    <title>day_3.1</title>
+
+    <script>
+        function saveData(){
+            localStorage.setItem("Name","Mann")
+            localStorage.setItem("Age","21")
+            document.getElementById("output").innerHTML = "Data saved successfully."
+
+        }
+
+        function getData(){
+            if ( localStorage.getItem("Name") == null && localStorage.getItem("Age")==null){
+                document.getElementById("output").innerHTML = "No Data Available."
+            }
+            else{
+                let name = localStorage.getItem("Name")
+                let age = localStorage.getItem("Age")
+                document.getElementById("output").innerHTML = "Name is " + name + " and His age is " + age + "."
+            }
+        }
+         
+        function removeData(){
+            // localStorage.removeItem("Name")
+            localStorage.removeItem("Age")
+            document.getElementById("output").innerHTML = "Age removed successfully."
+        }
+
+        function keyData(){
+            let key = localStorage.key(0)
+            let value = localStorage.getItem(key)
+            document.getElementById("output").innerHTML = "Key is : " + key + " and its value is : " + value + "."
+        }
+        
+        function removeAllData(){
+            localStorage.clear()
+            document.getElementById("output").innerHTML = "All Data Removed successfully."
+        }
+    </script>
+
 </head>
 <body>
-    
+    <br>
+    <input type="button" value="save" onclick="saveData()" />
+    <input type="button" value="get" onclick="getData()">
+    <input type="button" value="remove age" onclick="removeData()">
+    <input type="button" value="keyData" onclick="keyData()">
+    <input type="button" value="removeAllData" onclick="removeAllData()">
+    <br>
+    <br>
+    <h3 id="output"></h3>
 </body>
 </html>

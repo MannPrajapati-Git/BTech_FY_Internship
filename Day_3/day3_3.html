@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment - Decrement in Local Storage</title>
+
+    <script>
+        function increment(){
+           
+            let i = localStorage.getItem("number")
+            if(i != -1){
+                i++
+                localStorage.setItem("number",i)
+                document.getElementById("output").innerHTML = "Value of i : " + i
+            }
+            else{
+                console.log("Error.")
+            }
+        }
+
+        function decrement(){
+            let i = localStorage.getItem("number")
+            if (i != 0){
+                i--
+                localStorage.setItem("number",i)
+                document.getElementById("output").innerHTML = "Value of i : " + i
+            }
+            else{
+                console.log("Error.")
+            }
+        }
+        function showData(){
+            let i = localStorage.getItem("number")
+            document.getElementById("output").innerHTML = "Value of i : " + i
+        }
+    </script>
+</head>
+<body onload="showData()">
+    <input type="button" value="Increment" onclick="increment()">
+    <input type="button" value="Decrement" onclick="decrement()">
+    <br><br>
+    <h3 id="output"></h3>
+</body>
+</html>
