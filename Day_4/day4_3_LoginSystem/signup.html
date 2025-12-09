@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page With LocalStorage</title>
+    <script>
+        function dataSubmit(){
+            let name = localStorage.setItem("Name", document.getElementById("name").value)
+            let email = localStorage.setItem("Email", document.getElementById("email").value)
+            let phone = localStorage.setItem("Phone", document.getElementById("phone").value)
+            let pass = localStorage.setItem("Pass", document.getElementById("pass").value)
+
+
+            let n = localStorage.getItem("Name")
+            let e = localStorage.getItem("Email")
+            let p = localStorage.getItem("Phone")
+
+
+            document.getElementById("displayname").innerHTML = "NAME:" + n
+            document.getElementById("displayphone").innerHTML = "PHONE :" + p
+            document.getElementById("displayemail").innerHTML = "EMAIL :" + e
+           
+        }
+    </script>
+</head>
+<body>
+    <div>    
+        <h3>SignUp Form</h3>
+        Enter name : <input type="text" placeholder="Name" id="name"> <br>
+        Enter Email : <input type="text" placeholder="Email" id="email"> <br>
+        Enter Phone : <input type="text" placeholder="Phone Number" id="phone"> <br>
+        Enter Password : <input type="password" placeholder="Password" id="pass"> <br>
+        <input type="button" value="Submit" onclick="dataSubmit()">
+        <h3 id="displayname"></h3>
+        <h3 id="displayphone"></h3>
+        <h3 id="displayemail"></h3>
+    </div>
+</body>
+</html>

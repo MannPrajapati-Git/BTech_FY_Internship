@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page With LocalStorage</title>
+    <script>
+        function dataSubmit() {
+            let n = localStorage.getItem("Name")
+            let e = localStorage.getItem("Email")
+            let p = localStorage.getItem("Pass")
+
+            if (document.getElementById("email").value == e && document.getElementById("pass").value == p) {
+                document.getElementById("welcomeMessage").innerHTML = "Hello " + n + " Welcome to the website..."
+            }
+            else {
+                document.getElementById("welcomeMessage").innerHTML = "Sir/Ma'am your data is incorrect. Please try again.!!"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>Login Form</h3>
+        Enter Email : <input type="text" placeholder="Email" id="email"> <br>
+        Enter Password : <input type="password" placeholder="Password" id="pass"> <br>
+        <input type="button" value="Submit" onclick="dataSubmit()">
+        <h3 id="welcomeMessage"></h3>
+
+    </div>
+</body>
+
+</html>
