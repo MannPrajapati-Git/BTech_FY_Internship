@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="html" href="login.html">
+    <script>
+       if(localStorage.getItem("login") != "True"){
+        window.location = 'login.html'
+       }
+       function editProfilePage(){
+            window.location = 'editProfile.html'
+       }
+    </script>
+</head>
+<body >
+    <input type="button" id="home" value="HomePage" onclick="homedata()">
+
+    <a href="login.html">
+        <input type="button" id="logout" value="Logout" onclick="logoutuser()">
+    </a>
+    
+    <h3 id="welcomeMes"></h3>
+    <input type="button" value="Edit Profile" onclick="editProfilePage()" >
+    
+    <script>
+            let a = localStorage.getItem("Name")
+            document.getElementById("welcomeMes").innerHTML = "Welcome " + a + " in this website."
+
+            function homedata(){
+                 window.location='home.html'
+            }
+
+            function logoutuser(){
+
+                window.location = 'login.html'
+                localStorage.removeItem("login")
+            }
+
+        
+    </script>
+</body>
+</html>

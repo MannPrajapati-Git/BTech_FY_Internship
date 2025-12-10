@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change password page</title>
+    <script>
+        function changePassword(){
+            if(localStorage.getItem("Pass") == document.getElementById("op").value){
+                if (document.getElementById("np").value != localStorage.getItem("Pass")){
+                    if (document.getElementById("cnp").value == document.getElementById("np").value){
+                        localStorage.removeItem("Pass")
+                        localStorage.setItem("Pass",document.getElementById("np").value)
+                        document.getElementById("cptxt").innerHTML = "Your password changed successfully."
+                    }
+                }
+            }
+        }
+        function homePage(){
+            window.location = 'home.html'
+        }
+    </script>
+</head>
+<body>
+    <h2>Change Password</h2> <br><br>
+    Enter old password : <input type="text" placeholder="old password" id="op"> <br><br>
+    Enter new password : <input type="text" placeholder="old password" id="np"> <br><br>
+    Confirm new password : <input type="text" placeholder="old password" id="cnp"> <br><br>
+    <input type="button" value="confirm password" id="cp" onclick="changePassword()">
+    <h3 id="cptxt"></h3>
+     <input type="button" value="Home" onclick="homePage()">
+</body>
+</html>

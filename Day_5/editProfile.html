@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile Page</title>
+    <script>
+        function loadData(){
+            document.getElementById("en").value = localStorage.getItem("Name");
+            document.getElementById("ep").value = localStorage.getItem("Phone");
+            document.getElementById("ee").value = localStorage.getItem("Email");
+        }
+
+        function changeData(){
+                let n = document.getElementById("en").value;
+                let p = document.getElementById("ep").value;
+                let e = document.getElementById("ee").value;
+
+                localStorage.setItem("Name", n);
+                localStorage.setItem("Phone", p);
+                localStorage.setItem("Email", e);
+
+                document.getElementById("message").innerText = "Profile Updated Successfully.!";
+        }
+         function homePage(){
+            window.location = 'home.html'
+        }
+    </script>
+</head>
+
+<body onload="loadData()">
+    <h1>Edit your profile</h1>
+    Edit Name : <input type="text"  id="en"> <br><br>
+    Edit Phone : <input type="text"  id="ep"> <br><br>
+    Edit Email : <input type="text"  id="ee"><br><br>
+    <input type="button" value="change details" onclick="changeData()">
+    <h3 id="message"></h3>
+    <input type="button" value="Home" onclick="homePage()">
+</body>
+</html>

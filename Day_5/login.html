@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page with change password in local storage</title>
+    <script>
+        function dataSubmit() {
+            let n = localStorage.getItem("Name")
+            let e = localStorage.getItem("Email")
+            let p = localStorage.getItem("Pass")
+
+            let eemail=document.getElementById("email").value
+            let epass=document.getElementById("pass").value
+
+            if (eemail == "" && epass == "" ){
+                alert("plz enter id and pass")
+            }
+            else{
+
+            if ( eemail == e &&  epass == p) {
+                    localStorage.setItem("login","True")
+                    window.location='home.html'
+            }
+            else {
+                document.getElementById("welcomeMessage").innerHTML = "Sir/Ma'am your data is incorrect. Please try again.!!"
+            }
+        }
+
+        }
+        function changePassPage(){
+             window.location='cpPage.html'
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>Login Form</h3>
+        Enter Email : <input type="text" placeholder="Email" id="email"> <br>
+        Enter Password : <input type="password" placeholder="Password" id="pass"> <br>
+
+        <input type="button" value="Submit" onclick="dataSubmit()" >
+        <h3 id="welcomeMessage"></h3>
+        <input type="button" value="Change Password" onclick="changePassPage()">
+    
+    </div>
+</body>
+
+</html>
