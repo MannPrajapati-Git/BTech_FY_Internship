@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random OTP Generator on page reload</title>
+</head>
+<script>
+    function generateOTP(){
+         let otp = Math.floor( 100000 + Math.random() * 900000) 
+
+
+            document.getElementById("output").innerHTML = otp
+
+    }
+</script>
+<body onload="generateOTP()">
+    <h1>Task 3 : Random OTP Generator on page reload.</h1>
+    <input type="button" value="Generate OTP" onclick="generateOTP()">
+    <h3 id="output"></h3>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<script>
+    let i=0;
+    let j=null;
+    function startTimer(){       
+        stopTimer();
+        j = setInterval(() => {
+            document.getElementById("output").innerText = "Timer : " + i;
+
+            if (i === 10) {
+                clearInterval(j);   
+                return;
+            }
+            i++;
+        }, 800);
+    
+    }
+    function pauseTimer(){ 
+          clearInterval(j);
+          
+    }
+
+    function stopTimer(){
+        clearInterval(j);
+        i = 0;
+        document.getElementById("output").innerText = "Timer : " + i;
+    }
+
+</script>
+<body>
+    <h1>Task 2 : Countdown Timer.</h1>
+    <input type="button" value="Start" onclick="startTimer()" >
+    <input type="button" value="Pause" onclick="pauseTimer()">
+    <input type="button" value="Stop" onclick="stopTimer()">
+    <h3 id="output">Timer : 0</h3>
+
+</body>
+</html>

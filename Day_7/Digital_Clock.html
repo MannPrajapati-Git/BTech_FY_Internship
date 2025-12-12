@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Digital Clock current date & time</title>
+    <script>
+        function clock(){
+            const today = new Date();
+
+            let date = today.getDate()
+            let day = today.getDay()
+            let fullyear = today.getFullYear()
+            let hours = today.getHours()
+            let minutes = today.getMinutes()
+            let seconds = today.getSeconds()
+            let month = today.getMonth() + 1
+            let miliseconds = today.getMilliseconds()
+            let time = today.getTime()
+
+            
+            document.getElementById("output1").innerHTML = hours + ":" + minutes + ":" + seconds + ":" + miliseconds
+            document.getElementById("output2").innerHTML = "Date : " + date + "<br />" + "Day : " + day + "<br />" + "Month : " + month + "<br /> Year : " + fullyear
+        
+        // using arrow function.
+
+        //       setInterval(() => {
+        //         clock()
+        // }, 1);
+
+        setInterval(clock,1)  // for 1 line 
+        }
+            
+    </script>
+</head>
+<body onload="clock()">
+    <h1>Task 4 : Display Digital Clock current date & time</h1><br>
+    <input type="button" onclick="clock()" value="Clock">
+    <h3 id="output1"></h3>
+    <h3 id="output2"></h3>
+</body>
+</html>
