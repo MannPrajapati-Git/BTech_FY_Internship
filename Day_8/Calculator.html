@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <script>
+        let firstNumber = "";
+        let secondNumber = "";
+        let operator = "";
+
+        function pressNumber(num) {
+            if (operator === "") {
+                firstNumber = firstNumber + num;
+                document.getElementById("box").value = firstNumber;
+            } else {
+                secondNumber = secondNumber + num;
+                document.getElementById("box").value = secondNumber;
+            }
+        }
+
+        function pressOperator(op) {
+            if (firstNumber !== "") {
+                operator = op;
+            }
+        }
+
+        function calculate() {
+            let a = Number(firstNumber);
+            let b = Number(secondNumber);
+            let result = 0;
+
+            if (operator === "+") {
+                result = a + b;
+            } 
+            else if (operator === "-") {
+                result = a - b;
+            } 
+            else if (operator === "*") {
+                result = a * b;
+            } 
+            else if (operator === "/") {
+                result = a / b;
+            }
+
+            document.getElementById("box").value = result;
+
+            firstNumber = result.toString();
+            secondNumber = "";
+            operator = "";
+        }
+
+        function clearBox() {
+            firstNumber = "";
+            secondNumber = "";
+            operator = "";
+            document.getElementById("box").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="box" readonly><br><br>
+
+    <div style="margin-left:20px;">
+        <input type="button" value="1" onclick="pressNumber('1')">
+        <input type="button" value="2" onclick="pressNumber('2')">
+        <input type="button" value="3" onclick="pressNumber('3')">
+        <input type="button" value="+" onclick="pressOperator('+')">
+        <br><br>
+
+        <input type="button" value="4" onclick="pressNumber('4')">
+        <input type="button" value="5" onclick="pressNumber('5')">
+        <input type="button" value="6" onclick="pressNumber('6')">
+        <input type="button" value="-" onclick="pressOperator('-')">
+        <br><br>
+
+        <input type="button" value="7" onclick="pressNumber('7')">
+        <input type="button" value="8" onclick="pressNumber('8')">
+        <input type="button" value="9" onclick="pressNumber('9')">
+        <input type="button" value="*" onclick="pressOperator('*')">
+        <br><br>
+
+        <input type="button" value="." onclick="pressNumber('.')">
+        <input type="button" value="0" onclick="pressNumber('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="/" onclick="pressOperator('/')">
+        <br><br>
+    </div>
+
+    <div style="margin-left:60px;">
+        <input type="button" value="C" onclick="clearBox()">
+    </div>
+</body>
+</html>

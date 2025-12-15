@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Based OTP</title>
+
+    <script>
+        let j;  
+
+        function generateOTP() {
+
+            let otp = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById("output").innerHTML = otp;
+
+            // Hide resend button
+            document.getElementById("resend").style.display = "none";
+
+            clearInterval(j);
+
+            let i = 30; 
+
+            j = setInterval(() => {
+
+                if (i < 10) {
+                    document.getElementById("timer").innerText = "00:0" + i;
+                } else {
+                    document.getElementById("timer").innerText = "00:" + i;
+                }
+
+                if (i === 0) {
+                    clearInterval(j);
+                    document.getElementById("timer").innerText = "OTP Expired";
+                    document.getElementById("resend").style.display = "inline";
+                }
+
+                i--;
+            }, 10);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Task : OTP Based Timer</h1>
+
+    <h3 id="output">Click button to generate OTP</h3>
+    <h2 id="timer">00:30</h2>
+
+    <input type="button" value="Start Timer" onclick="generateOTP()">
+
+    <br><br>
+
+    <input type="button" id="resend" value="Resend OTP" onclick="generateOTP()" style="display:none;">
+</body>
+</html>

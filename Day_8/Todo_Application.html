@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <script>
+        let count = 0
+
+        function AddTodo(){
+            let text = document.getElementById("txt").value
+            count++
+
+            document.getElementById("output").innerHTML +=
+            `<div id="todo${count}">
+                ${text}
+                <input type="button" value="Edit" onclick="EditTodo(${count})">
+                <input type="button" value="Delete" onclick="DeleteTodo(${count})">
+            </div>`
+
+            document.getElementById("txt").value = ""
+        }
+
+        function EditTodo(id){
+            let todoText = document.getElementById("todo"+id).innerText
+            document.getElementById("txt").value = todoText
+            document.getElementById("todo"+id).remove()
+        }
+
+        function DeleteTodo(id){
+            document.getElementById("todo"+id).remove()
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Todo Application</h1>
+
+    <input type="text" id="txt" placeholder="Enter :">
+    <input type="button" value="Add" onclick="AddTodo()">
+
+
+    <div id="output"></div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Maker</title>
+        <script>
+        function makeColor() {
+
+            let r = document.getElementById("r").value;
+            let g = document.getElementById("g").value;
+            let b = document.getElementById("b").value;
+
+            let color = "rgb(" + r + "," + g + "," + b + ")";
+
+            document.body.style.backgroundColor = color;
+            document.getElementById("output").innerHTML = color;
+        }
+    </script>
+
+    
+</head>
+<body onload="makeColor()">
+
+    <h3>Task 6 : Create Color Maker</h3>
+    
+        R <input type="range" id="r" min="0" max="255" value="50" class="slider" oninput="makeColor()"><br><br>
+        G <input type="range" id="g" min="0" max="255" value="100" class="slider" oninput="makeColor()"><br><br>
+        B <input type="range" id="b" min="0" max="255" value="10" class="slider" oninput="makeColor()"><br><br>
+  
+    <h3 id="output">rgb(0,0,0)</h3>
+</body>
+</html>
