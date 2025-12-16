@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All in One JS Validations.</title>
+    <script>
+        function Validation(){
+            let name = document.getElementById("txtbox1").value
+            if (name == "" || !isNaN(name)){
+                alert("Enter name in text...")
+            }
+            else if(name.length < 2)
+            {
+                alert("Enter valid name...")
+            }
+            else{
+                document.getElementById("n").innerHTML = "Name : " + name
+            }
+            let mobilenumber = document.getElementById("txtbox2").value
+            if(mobilenumber.length<10 || mobilenumber.length>10 && mobilenumber == "" ){
+                alert("Mobile Number must 10 characters...")
+            }
+            else{
+                document.getElementById("mn").innerHTML = "Mobile number : " + mobilenumber
+            }
+
+            let email = document.getElementById("txtbox3").value
+            let emailformate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+            if(!email.match(emailformate)){
+                alert("Enter Valid Email...")
+            }
+            else{
+                document.getElementById("e").innerHTML = "Email is : " + email
+            }
+            
+            
+            let password = document.getElementById("txtbox4").value
+            let passwordformate = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{5,8}$/;
+            if(!password.match(passwordformate)){
+                alert("Enter password with 5 to 8 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character...")
+            }
+            else{
+                document.getElementById("p").innerHTML = "Password is : " + password    
+            }
+            
+            let confirmpassword = document.getElementById("txtbox5").value
+            if (confirmpassword != password){
+                alert("Enter same password again...")
+            } 
+            else{
+                document.getElementById("cp").innerHTML = "Password is confirmed." 
+            }
+
+
+            let gender = document.getElementsByName("G")
+            if(gender[0].checked == false && gender[1].checked == false )
+            {
+                alert("Please select Gender...")
+            }
+            else{
+                if(gender[0].checked == true){
+                    document.getElementById("g").innerHTML = "Gender : Male"
+                }
+                else{
+                    document.getElementById("g").innerHTML = "Gender : Female"
+                }
+            }
+
+            let hobby = document.getElementsByName("H")
+            if(hobby[0].checked == false && hobby[1].checked == false)
+            {
+                alert("Please select Hobby...")
+            }
+            else{
+              if(hobby[0].checked){
+                document.getElementById("h").innerHTML = "Hobby : Sleeping" 
+              }
+             if(hobby[1].checked){
+                document.getElementById("h").innerHTML = "Hobby : Cooking" 
+            }
+            if(hobby[0].checked && hobby[1].checked){
+                  document.getElementById("h").innerHTML = "Hobby : Sleeping , Cooking" 
+              }
+              else{}
+            }
+
+            let city = document.getElementById("ct").value
+            if(city == "-1"){
+                alert("Select City...")
+            }
+            else{
+                document.getElementById("c").innerHTML = "City : " + city
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1></h1>
+    Enter name : <input type="text" id="txtbox1"><br><br>
+    Enter Mobile Number : <input type="text" id="txtbox2"><br><br>
+    Enter Email : <input type="text" id="txtbox3"><br><br>
+    Enter Password : <input type="text" id="txtbox4"><br><br>
+    Enter Same Password Again: <input type="password" id="txtbox5"><br><br>
+    Gender : <input type="radio" name="G" id="r1"> Male <input type="radio" name="G" id="r2"> Female <br><br>
+    Hobby : <input type="checkbox" name="H" id="r1"> Sleeping <input type="checkbox" name="H" id="r2"> Cooking <br><br>
+    City : <select name="C" id="ct">
+        <option value="-1" selected>---Select City---</option>
+        <option value="ahmedabad" >Ahmedabad</option>
+        <option value="sabarkatha" >Sabarkatha</option>
+        <option value="himmatnagar" >Himmatnagar</option>
+    </select>
+    <br><br>
+    <input type="button" value="Submit" onclick="Validation()">
+    <br>
+    <br>
+    <h1>User Filled Data</h1>
+    <h3 id="n"></h3>
+    <h3 id="mn"></h3>
+    <h3 id="e"></h3>
+    <h3 id="p"></h3>
+    <h3 id="cp"></h3>
+    <h3 id="g"></h3>
+    <h3 id="h"></h3>
+    <h3 id="c"></h3>
+</body>
+</html>
