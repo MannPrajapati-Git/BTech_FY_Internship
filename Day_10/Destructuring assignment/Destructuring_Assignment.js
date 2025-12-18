@@ -17,8 +17,8 @@ console.log(fn , ln);
 
 // With ES6 ( Object Destructuring)
 
-let {fname , lname } = person;
-console.log(fname , lname);
+let {firstname , lastname } = person;
+console.log(firstname , lastname);
 
 // With ES6 ( Array Destructuring and rest operators)
 
