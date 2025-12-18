@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application using localStorage.</title>
+
+    <script>
+        let array = [];
+
+        function AddTodo() {
+            let text = document.getElementById("txt").value;
+
+    
+            let data = localStorage.getItem("list");
+            if (data != null) {
+                array = JSON.parse(data);
+            }
+
+            array.push(text);   
+
+            
+            localStorage.setItem("list", JSON.stringify(array));
+
+            document.getElementById("txt").value = "";
+
+            GetTodo();
+        }
+
+        function GetTodo() {
+            let data = localStorage.getItem("list");
+
+            if (data != null) {
+                array = JSON.parse(data);
+
+                let output = "";
+                for (let i = 0; i < array.length; i++) {
+                    output += array[i] + "<br>";
+                }
+
+                document.getElementById("output").innerHTML = output;
+            }
+        }
+    </script>
+</head>
+
+<body onload="GetTodo()">
+
+    <h1>Task : Todo Application using local storage.</h1>
+
+    <input type="text" id="txt" placeholder="Enter :"> 
+    <input type="button" value="Add" onclick="AddTodo()">
+
+    <div id="output"></div>
+
+</body>
+</html>
