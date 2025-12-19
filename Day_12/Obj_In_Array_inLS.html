@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <script>
+        let dataArray = [];
+        function submitData() {
+            let name = document.getElementById("n").value
+            let mobileno = document.getElementById("mn").value
+            let emailid = document.getElementById("e").value
+            let password = document.getElementById("p").value
+            let birthdate = document.getElementById("dob").value
+            // let gender = document.getElementsByName("g") // array ma value ai
+            let dataObj = {
+                Name: name,
+                MobileNo: mobileno,
+                EmailId: emailid,
+                Password: password,
+                BirthDate: birthdate,
+                // Gender : gender
+            }
+
+            let oldData = localStorage.getItem("userdata");
+            if (oldData != null) {
+                dataArray = JSON.parse(oldData);
+            }
+
+            dataArray.push(dataObj);
+
+            localStorage.setItem("userdata", JSON.stringify(dataArray));
+
+            showData();
+
+        }
+        function showData() {
+            let data = localStorage.getItem("userdata");
+            if (data != null) {
+                dataArray = data
+
+                let output = "";
+                for (let i = 0; i < dataArray.length; i++) {
+                    output += dataArray[i];
+                }
+                document.getElementById("output").innerHTML = output;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>FinalTask : UserData Object Is Stored In LocalStorage As Array.</h1> <br>
+    Enter name : <input type="text" placeholder="Enter Name" id="n"><br><br>
+    Enter MobileNo : <input type="text" placeholder="Enter MobileNo" id="mn"><br><br>
+    Enter EmailID : <input type="email" placeholder="Enter Email" id="e"><br><br>
+    Enter Password : <input type="password" placeholder="Enter Password" id="p"><br><br>
+    Enter BirthDate : <input type="date" placeholder="Enter DOB" id="dob"><br><br>
+    <!-- Enter Gender : 
+    <input type="radio" name="g">Male
+    <input type="radio" name="g">Female<br><br> -->
+    <input type="button" value="Submit" onclick="submitData()"><br><br>
+    <h3 id="output"></h3>
+</body>
+
+</html>
