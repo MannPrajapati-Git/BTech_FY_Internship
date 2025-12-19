@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,25 @@
 
     <script>
         let array = [];
+        let editIndex = -1;
 
         function AddTodo() {
             let text = document.getElementById("txt").value;
 
-    
+
             let data = localStorage.getItem("list");
             if (data != null) {
                 array = JSON.parse(data);
             }
 
-            array.push(text);   
+            if (editIndex === -1) {
+                array.push(text);
+            } else {
+                array[editIndex] = text;
+                editIndex = -1;
+            }
 
-            
+
             localStorage.setItem("list", JSON.stringify(array));
 
             document.getElementById("txt").value = "";
@@ -35,12 +42,26 @@
 
                 let output = "";
                 for (let i = 0; i < array.length; i++) {
-                    output += array[i] + "<br>";
+                    output += array[i] + `<button onclick="EditTodo(${i})">Edit</button>
+                        <button onclick="DeleteTodo(${i})">Delete</button><br>`;
                 }
 
                 document.getElementById("output").innerHTML = output;
             }
         }
+
+
+        function EditTodo(index) {
+            document.getElementById("txt").value = array[index];
+            editIndex = index;
+        }
+
+        function DeleteTodo(index) {
+            array.splice(index, 1);
+            localStorage.setItem("list", JSON.stringify(array));
+            GetTodo();
+        }
+
     </script>
 </head>
 
@@ -48,10 +69,11 @@
 
     <h1>Task : Todo Application using local storage.</h1>
 
-    <input type="text" id="txt" placeholder="Enter :"> 
+    <input type="text" id="txt" placeholder="Enter Task :">
     <input type="button" value="Add" onclick="AddTodo()">
 
     <div id="output"></div>
 
 </body>
+
 </html>
