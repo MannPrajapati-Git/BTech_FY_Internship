@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Stringify Parse LocalStorage</title>
+    <script>
+       
+
+            function saveObj(){
+                let obj = {
+                    name : "Mann",
+                gender : "Male",
+                mobile : 7383797894
+            }
+            let data = JSON.stringify(obj)
+            localStorage.setItem("userdata",data)
+        }
+        function getObj(){
+            let a = localStorage.getItem("userdata")
+            document.getElementById("output1").innerHTML = "Dataset : " +a
+            let data = JSON.parse(a)
+            document.getElementById("output2").innerHTML = "Name : " +data.name
+            document.getElementById("output3").innerHTML = "Gender : " +data.gender
+            document.getElementById("output4").innerHTML = "MobileNo. : " +data.mobile
+        }
+    
+    </script>
+</head>
+<body>
+    <input type="button" value="Showdata" onclick="getObj()">
+    <input type="button" value="Savedata" onclick="saveObj()">
+    <h3 id="output1"></h3>
+    <h3 id="output2"></h3>
+    <h3 id="output3"></h3>
+    <h3 id="output4"></h3>
+</body>
+</html>
