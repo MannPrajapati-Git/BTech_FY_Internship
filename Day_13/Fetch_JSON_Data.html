@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JSON Data</title>
+    <script>
+        async function getResponseText(url) {
+            const response = await fetch(url);
+            const text = await response.json();
+            return text;
+        }
+        var a = getResponseText("https://jsonplaceholder.typicode.com/posts");
+        console.log(a);
+    </script>
+</head>
+<body>
