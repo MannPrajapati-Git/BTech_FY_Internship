@@ -1,0 +1,26 @@
+/*************  ✨ Windsurf Command ⭐  *************/
+div {
+    background-color: #a6dce7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+div a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+
+}
+
+div a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+
+}
