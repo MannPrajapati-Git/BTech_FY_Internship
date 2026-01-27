@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <TodoList /> }/>
+          <Route path="/todolist" element={ <TodoList /> }/>
           <Route path="/addTodo" element={<AddTodo />}/>
         </Routes>
       </BrowserRouter>
