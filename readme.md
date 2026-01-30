@@ -9,7 +9,7 @@ A detailed and well-structured README will be added soon.
 
 * 🐙 **GitHub**: [https://github.com/MannPrajapati-Git](https://github.com/MannPrajapati-Git)
 * 💼 **LinkedIn**: [https://www.linkedin.com/in/prajapatimann2502](https://www.linkedin.com/in/prajapatimann2502)
-* 📸 **Instagram**: [https://www.instagram.com/mann_2502](https://www.instagram.com/mann_2502)
+* 📸 **Instagram**: [https://www.instagram.com/mann_2502](https://www.instagram.com/mannprajapati.ai)
 * ✉️ **Email**: [mannprajapati2502@gmail.com](mailto:mannprajapati2502@gmail.com)
 
 ---
