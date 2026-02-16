@@ -1,0 +1,131 @@
+/* Action Buttons */
+.action-btn {
+    padding: 6px 14px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.action-btn.edit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+.action-btn.edit:hover {
+    background: #667eea;
+}
+.action-btn.delete {
+    background: #fde8e8;
+    color: #9b1c1c;
+    border: 1px solid #f8b4b4;
+}
+.action-btn.delete:hover {
+    background: #f8b4b4;
+    color: #fff;
+}
+/* Main Page Layout */
+.home-main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+    min-height: 90vh;
+}
+
+/* Card Container */
+.table-card {
+    background: white;
+    width: 100%;
+    max-width: 1200px; /* Limits max width on big screens */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures corners stay rounded */
+}
+
+/* Header */
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Table Content Area */
+.table-content {
+    width: 100%;
+    /* This completely hides scrollbars */
+    overflow: hidden; 
+}
+
+/* Table Styling */
+.clean-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* CRITICAL: Forces table to respect 100% width */
+}
+
+.clean-table th, 
+.clean-table td {
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+}
+
+/* Header Styling */
+.clean-table th {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* Handling Long Text (Email/Password) */
+.break-text {
+    word-wrap: break-word;   /* Breaks long words */
+    word-break: break-all;   /* Forces break if needed */
+    white-space: normal;     /* Allows wrapping to new lines */
+}
+
+/* Row Hover Effect */
+.clean-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Status Text */
+.status-text {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+/* --- Mobile Responsiveness without Scrollbar --- */
+@media (max-width: 768px) {
+    .home-main {
+        padding: 10px;
+    }
+
+    .clean-table th, 
+    .clean-table td {
+        padding: 10px 5px; /* Smaller padding */
+        font-size: 12px;   /* Smaller font */
+    }
+
+    /* Hide the ID column on very small screens to save space */
+    .clean-table th:first-child,
+    .clean-table td:first-child {
+        width: 30px;
+        padding-left: 5px;
+    }
+}
