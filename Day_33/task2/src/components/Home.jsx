@@ -26,7 +26,6 @@ function Home() {
   const [addresses, setAddresses] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
 
-  // Load data from localStorage
   useEffect(() => {
     const stored = localStorage.getItem("addresses");
     if (stored) {
@@ -34,7 +33,6 @@ function Home() {
     }
   }, []);
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -42,25 +40,21 @@ function Home() {
     });
   };
 
-  // Submit form (Create + Update)
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (editIndex !== null) {
-      // Update
       const updated = [...addresses];
       updated[editIndex] = formData;
       setAddresses(updated);
       localStorage.setItem("addresses", JSON.stringify(updated));
       setEditIndex(null);
     } else {
-      // Create
       const updated = [...addresses, formData];
       setAddresses(updated);
       localStorage.setItem("addresses", JSON.stringify(updated));
     }
 
-    // Reset form
     setFormData({
       name: "",
       street: "",
@@ -70,14 +64,12 @@ function Home() {
     });
   };
 
-  // Delete
   const handleDelete = (index) => {
     const updated = addresses.filter((_, i) => i !== index);
     setAddresses(updated);
     localStorage.setItem("addresses", JSON.stringify(updated));
   };
 
-  // Edit
   const handleEdit = (index) => {
     setFormData(addresses[index]);
     setEditIndex(index);
@@ -87,7 +79,6 @@ function Home() {
     <div >
       <h1>Address Manager</h1>
 
-      {/* Form */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -134,7 +125,6 @@ function Home() {
         </button>
       </form>
 
-      {/* Address List */}
       <h2>Saved Addresses</h2>
 
       {addresses.length === 0 ? (
